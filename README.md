@@ -9,4 +9,4 @@ Guide on how to use Phanom Omni device with Source Robotics robots!
 6.  https://support.3dsystems.com/s/article/Haptic-Device-Drivers?language=en_US We are using windows 10 so we isntall v3.5 Phantom Device Driver v5.1.7:
 for Firewire or Parallel devices
 
-https://s3.amazonaws.com/dl.3dsystems.com/binaries/support/downloads/Sensable/3DS/PDD_InstallGuide.pdf
+Docs: https://s3.amazonaws.com/dl.3dsystems.com/binaries/support/downloads/Sensable/3DS/PDD_InstallGuide.pdf
