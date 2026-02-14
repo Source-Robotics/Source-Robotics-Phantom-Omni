@@ -1,6 +1,8 @@
 # Phantom-Omni-Source-Robotics
 Guide on how to use Phanom Omni device with Source Robotics robots!
 
+FIRE WIRE PCI CARD WE USED: Digitus DS-30201-5 3+1
+
 1. This device is 20+ years old.
 2. https://kyle.machul.is/2016/10/03/using-a-firewire-phantom-omni-on-windows-8-10/ good guide
 3. Download legacy drivers from here: https://support.microsoft.com/en-us/topic/firewire-port-based-device-does-not-work-correctly-in-windows-8-1-or-windows-8-2242eed9-e8e2-00eb-c854-9335ea06c5fe
