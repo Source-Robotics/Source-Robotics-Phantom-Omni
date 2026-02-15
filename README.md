@@ -15,5 +15,9 @@ Docs: https://s3.amazonaws.com/dl.3dsystems.com/binaries/support/downloads/Sensa
 
 
 Possible repos that will allow control of external arms: 
+
 https://github.com/abdulbasit656/Bio_Med_Phantom_Robot
+
 https://github.com/tbs-ualberta/PHANSIM
+
+URDF files: https://github.com/gripsCAR/phantom_omni
