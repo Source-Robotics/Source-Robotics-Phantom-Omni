@@ -12,3 +12,8 @@ FIRE WIRE PCI CARD WE USED: Digitus DS-30201-5 3+1
 for Firewire or Parallel devices
 
 Docs: https://s3.amazonaws.com/dl.3dsystems.com/binaries/support/downloads/Sensable/3DS/PDD_InstallGuide.pdf
+
+
+Possible repos that will allow control of external arms: 
+https://github.com/abdulbasit656/Bio_Med_Phantom_Robot
+https://github.com/tbs-ualberta/PHANSIM
