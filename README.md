@@ -14,6 +14,7 @@ for Firewire or Parallel devices
 Docs: https://s3.amazonaws.com/dl.3dsystems.com/binaries/support/downloads/Sensable/3DS/PDD_InstallGuide.pdf
 
 Download OpenHaptics_Developer_Edition_v3.4.0.zip from: https://softwaresupport.oqton.com/s/article/OpenHaptics-for-Windows-Developer-Edition-v34?language=en_US
+https://support.3dsystems.com/s/article/OpenHaptics-for-Windows-Developer-Edition-v34?language=en_US
 
 
 Possible repos that will allow control of external arms: 
