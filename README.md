@@ -1,11 +1,17 @@
-# Phantom Omni — Source Robotics
+# Phantom Omni
 
-A Python library for interfacing with the **3D Systems Phantom Omni** haptic device on Windows.  
-Communicates over FireWire (PCIe 1394 card) using the OpenHaptics HDAPI via `ctypes` — no ROS required.
+**Python library and setup guide for the 3D Systems Phantom Omni haptic device on Windows.** It reads the stylus
+position, velocity, joint and gimbal angles and buttons, and sends forces, over FireWire with the OpenHaptics HDAPI
+via `ctypes`; no ROS required.
 
-![Phantom Omni](Phantom_Omni.jpg)
+[Setup](#setup--installation) · [Drivers and SDK download](../../releases) · [Commands](commands.md) ·
+[Discord](https://discord.com/invite/prjUvjmGpZ)
 
----
+[![License](https://img.shields.io/badge/license-MIT-143952?style=flat-square)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows_10_x64-143952?style=flat-square)](#requirements)
+[![Discord](https://img.shields.io/discord/1072498136284667955?style=flat-square&logo=discord&logoColor=white&label=discord&color=292B37)](https://discord.com/invite/prjUvjmGpZ)
+
+<img src="Phantom_Omni.jpg" alt="Phantom Omni" width="480">
 
 ## Requirements
 
@@ -21,7 +27,6 @@ Communicates over FireWire (PCIe 1394 card) using the OpenHaptics HDAPI via `cty
 
 > **Download:** All required drivers (FireWire legacy driver, Phantom Device Driver) and the OpenHaptics SDK are bundled together in the [GitHub Releases](../../releases) of this repository for convenience.
 
----
 
 ## Setup & Installation
 
@@ -51,13 +56,11 @@ After installation, make sure the OpenHaptics `bin` directory (containing `HD.dl
 
 This library uses only the Python standard library (`ctypes`, `os`, `sys`, `time`). No additional packages are required.
 
----
 
 ## Testing the Device
 
 Before running any Python code, you can verify the device is working correctly using the **Phantom Test** and **Phantom Configuration** GUI tools that are installed alongside the Phantom Device Driver. These allow you to test connectivity, calibration, and force feedback without writing any code.
 
----
 
 ## Running the Code
 
@@ -86,7 +89,6 @@ finally:
     omni.close()
 ```
 
----
 
 ## Phantom Omni Axes
 
@@ -102,9 +104,11 @@ The diagram below shows the coordinate system and joint axes used by the Phantom
 
 Joint angles are reported as `[waist, shoulder, elbow]` in radians. Gimbal angles are reported as `[yaw, pitch, roll]` in radians.
 
----
 
-## API Reference
+## API reference
+
+<details>
+<summary>The <code>PhantomOmni</code> class: every call, its arguments and what it returns</summary>
 
 > **Note:** Only `get_position()` and `get_velocity()` (via `get_state()`) have been fully tested and confirmed working on hardware. Other API calls — including gimbal angles, joint torques, and force output — are implemented based on the OpenHaptics HDAPI specification but **have not been fully verified** on this specific device setup. Use them with caution.
 
@@ -137,15 +141,28 @@ Sends a force command to the device in Newtons.
 ### `close()`
 Stops the scheduler and releases the device. Always call this (or use `try/finally`) when finished.
 
----
+</details>
 
 ## Additional Resources
 
 - [URDF files for Phantom Omni](https://github.com/gripsCAR/phantom_omni)
 - [OpenHaptics Documentation](https://s3.amazonaws.com/dl.3dsystems.com/binaries/support/downloads/Sensable/3DS/PDD_InstallGuide.pdf)
 
----
 
-## License
+## Community
 
-See [LICENSE](LICENSE) for details.
+Ask in [Discussions](https://github.com/orgs/Source-Robotics/discussions), chat on
+[Discord](https://discord.com/invite/prjUvjmGpZ), report a bug in
+[Issues](https://github.com/Source-Robotics/Source-Robotics-Phantom-Omni/issues). Follow Source Robotics:
+
+[![Discord](https://img.shields.io/discord/1072498136284667955?style=flat-square&logo=discord&logoColor=white&label=discord&color=143952)](https://discord.com/invite/prjUvjmGpZ)
+[![Discussions](https://img.shields.io/badge/discussions-ask_a_question-143952?style=flat-square&logo=github&logoColor=white)](https://github.com/orgs/Source-Robotics/discussions)
+[![YouTube](https://img.shields.io/badge/youtube-%40source--robotics-143952?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@source-robotics)
+[![Instagram](https://img.shields.io/badge/instagram-%40source__robotics-143952?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/source_robotics/)
+[![X](https://img.shields.io/badge/x-%40SourceRobotics-143952?style=flat-square&logo=x&logoColor=white)](https://x.com/SourceRobotics)
+[![LinkedIn](https://img.shields.io/badge/linkedin-Source_Robotics-143952?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D)](https://www.linkedin.com/company/source-robotics/)
+[![Blog](https://img.shields.io/badge/blog-source--robotics.com-143952?style=flat-square&logo=rss&logoColor=white)](https://source-robotics.com/blogs/blog)
+
+## Licensing
+
+The library is under the [MIT License](LICENSE).
